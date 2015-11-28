@@ -1,6 +1,6 @@
 #include "FunctionManager.h"
 
-
+//default constructor for lazy initialization
 FunctionManager::FunctionManager() {
 	good = false;
 }
@@ -18,13 +18,11 @@ FunctionManager::FunctionManager(FunctionManager& func) {
 	setConfigLine(func.getConfigLine());
 }
 
-//
+
+//destructor
 FunctionManager::~FunctionManager() {
 	
 }
-
-
-//executes the function
 
 
 //update the current config line
@@ -34,23 +32,10 @@ void FunctionManager::setConfigLine(std::string cfl) {
 }
 
 
-//
+//takes a string of the typical configuration form and updates the config of the function
 void FunctionManager::updateParameters(std::string var_cfl) {
 	std::string new_cfg_line = file_name + "|" + function_name + "|" + var_cfl;
 	setConfigLine(new_cfg_line);
-	/*
-	std::vector<std::string> tokens;
-	unsigned int delim_pos = 0;
-
-	while ((delim_pos = var_cfl.find('|')) != std::string::npos) {
-		tokens.push_back(var_cfl.substr(0, delim_pos));
-		var_cfl.erase(0, delim_pos+1);
-	}
-	tokens.push_back(var_cfl);
-
-	for (unsigned int i = 0; i < tokens.size(); i++) {
-		
-	}*/
 }
 
 
