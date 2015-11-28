@@ -2,7 +2,6 @@
 #include "PythonHandler.h"
 #include <algorithm>
 
-using boost::any_cast;
 
 //responsible for setting up PythonArgLists for python functions
 class FunctionManager {
