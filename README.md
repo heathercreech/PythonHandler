@@ -27,10 +27,10 @@ To construct a FunctionManager, the constructor must be provided with a configur
 
 Currently Supported Values
 --------------------------
-String
-Long
-Float
-Double
-Bool
+String	|
+Long	|
+Float	|
+Double	|
+Bool	|
 
 ####Executing a Function
