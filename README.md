@@ -18,6 +18,7 @@ Python's provided libraries for embedding it's functionality into C++ is cumbers
 *Note: the FunctionManager is a temporary interface to make handling arguments easier. A more permanent solution will be developed later.
 
 ####Purpose
+Automatic management of a PythonHandler's PythonArgList.
 
 ####Use
 To construct a FunctionManager, the constructor must be provided with a configure line. This configure line needs to be of the form "filename|function_name|arg1:val1|argn:valn...." File name refers to the Python source file, and the ".py" extension should be omitted (the class will handle accidental inclusion of the extension later). Function name is the name of the function you are trying to call. Arg1 through argn are the types of the parameters of the target function, with val1 and valn being their actual values. There arguments are represented as a string containing the name of their intended type.
