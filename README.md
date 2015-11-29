@@ -47,4 +47,4 @@ For the more permanent version of this class, the Python function "PyFloat_AsDou
 
 
 ##Issues
-*Pushing error information into runtime from compile time (due to string based initialization of FunctionManagers -- though the runtime error output should be sufficient for locating the issue).
+* Pushing error information into runtime from compile time (due to string based initialization of FunctionManagers -- though the runtime error output should be sufficient for locating the issue).
