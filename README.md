@@ -36,3 +36,9 @@ As an example of the initialization of a FunctionManager, consider the following
 	FunctionManager fm("formula|use_formula|double:" + to_string(x));
 	double formula_value = PyFloat_AsDouble(fm.execute());
 ```
+
+In the instance above, the execution of code and storage of its result can be compressed into one line:
+```c++
+	double x = 1;
+	double formula_value = PyFloat_AsDouble(FunctionManager("formula|use_formula|double:" + to_string(x)).execute());
+```
