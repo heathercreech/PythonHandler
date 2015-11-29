@@ -44,3 +44,7 @@ In the instance above, the execution of code and storage of its result can be co
 	double formula_value = PyFloat_AsDouble(FunctionManager("formula|use_formula|double:" + to_string(x)).execute());
 ```
 For the more permanent version of this class, the Python function "PyFloat_AsDouble" will possibly be omitted for some form of automatic typing. The system for this type determination is yet to be decided, but it could involve the user specifying the return value ahead of time, or something more like boost::any.
+
+
+##Issues
+*Pushing error information into runtime from compile time (due to string based initialization of FunctionManagers -- though the runtime error output should be sufficient for locating the issue).
