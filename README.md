@@ -25,4 +25,12 @@ Python's provided libraries for embedding it's functionality into C++ is cumbers
 ####Initialization
 To construct a FunctionManager, the constructor must be provided with a configure line. This configure line needs to be of the form "filename|function_name|arg1|argn...." File name refers to the Python source file, and the ".py" extension should be omitted (the class will handle accidental inclusion of the extension later). Function name is the name of the function you are trying to call. Finally arg1 through argn are the parameters of the target function. There arguments are represented as a string containing the name of their intended type.
 
+Currently Supported Values
+--------------------------
+String
+Long
+Float
+Double
+Bool
+
 ####Executing a Function
