@@ -23,7 +23,7 @@ Python's provided libraries for embedding it's functionality into C++ is cumbers
 ####Purpose
 
 ####Initialization
-To construct a FunctionManager, the constructor must be provided with a configure line. This configure line needs to be of the form "filename|function_name|arg1|argn...." File name refers to the Python source file, and the ".py" extension should be omitted (the class will handle accidental inclusion of the extension later). Function name is the name of the function you are trying to call. Finally arg1 through argn are the parameters of the target function. There arguments are represented as a string containing the name of their intended type.
+To construct a FunctionManager, the constructor must be provided with a configure line. This configure line needs to be of the form "filename|function_name|arg1:val1|argn:valn...." File name refers to the Python source file, and the ".py" extension should be omitted (the class will handle accidental inclusion of the extension later). Function name is the name of the function you are trying to call. Arg1 through argn are the types of the parameters of the target function, with val1 and valn being their actual values. There arguments are represented as a string containing the name of their intended type.
 
 Currently Supported Values |
 -------------------------- |
@@ -32,5 +32,13 @@ Long	|
 Float	|
 Double	|
 Bool	|
+
+As an example of the initialization of a FunctionManager, consider the following: a C++ project's goal is the evaluation of different mathematical formulas. Recompiling code every time you want to change the currently targeted formula gets tiresome, so we will use a Python function that will perform the formula for us. The formula function is located in "formula.py" and is named "use_formula" with a single argument of type double.
+```c++
+	double x = 1;
+	FunctionManager fm("formula|use_formula|double:" + to_string(x));
+	double formula_value = PyFloat_AsDouble(fm.execute());
+```
+
 
 ####Executing a Function
