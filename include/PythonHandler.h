@@ -12,7 +12,7 @@ typedef std::vector<PyObject*> PythonArgList;
 
 class PythonHandler{
 public:
-	PythonHandler() {};
+	PythonHandler() { good = false; };
 	PythonHandler(std::string, std::string, PythonArgList);
 	~PythonHandler();
 
@@ -22,7 +22,6 @@ public:
 	bool isGood();
 	PythonError getLastError();
 
-	//constructor function for use with a FunctionManager
 	void init(std::string, std::string, PythonArgList);
 
 	PyObject* py_mod;
@@ -33,8 +32,6 @@ private:
 	void loadModule();
 	void loadFunction(std::string);
 	void packArgs(PythonArgList); //packs args into a tuple for PyObject_CallObject
-
-	//helper functions
 
 
 	bool good = true;

@@ -31,5 +31,5 @@ private:
 	PythonHandler py_handler;
 	PythonArgList py_args;
 
-	bool good = true;
+	bool good = false;
 };

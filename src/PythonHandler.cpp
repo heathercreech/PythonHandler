@@ -1,13 +1,13 @@
 #include "PythonHandler.h"
 
 
-//
+//Function constructor
 PythonHandler::PythonHandler(std::string filename, std::string functionname, PythonArgList arg_list) : function_args(){
 	init(filename, functionname, arg_list);
 }
 
 
-//
+//Clean up references
 PythonHandler::~PythonHandler() {
 	Py_DECREF(py_func_args);
 	Py_DECREF(py_mod);
@@ -15,7 +15,10 @@ PythonHandler::~PythonHandler() {
 }
 
 
+//Enable lazy initialization
+//Loads the function and arguments
 void PythonHandler::init(std::string filename, std::string functionname, PythonArgList arg_list) {
+	good = true;
 	loadName(filename);
 	loadModule();
 	loadFunction(functionname);
@@ -53,13 +56,13 @@ PyObject* PythonHandler::execute() {
 }
 
 
-//
+//Loads the functions file's name
 void PythonHandler::loadName(std::string filename) {
 	py_name = PyUnicode_FromString(filename.c_str());
 }
 
 
-//
+//Loads the actual file
 void PythonHandler::loadModule() {
 	//check not really needed, just being safe
 	if (isGood()) {
@@ -73,7 +76,7 @@ void PythonHandler::loadModule() {
 }
 
 
-//
+//Loads the function
 void PythonHandler::loadFunction(std::string functionname) {
 	if (isGood()) {
 		py_func = PyObject_GetAttrString(py_mod, functionname.c_str());
